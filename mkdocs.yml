@@ -1,0 +1,26 @@
+site_name: ViralScan
+
+# themes: https://pawamoy.github.io/mkdocs-gallery/
+# original: material
+theme:
+  name: readthedocs
+
+plugins:
+  - search
+  - mkdocstrings:
+      handlers:
+        python:
+          paths: ["."] # change this later.
+          options:
+            show_submodules: false
+            filters:
+              - "!^_"
+            show_source: true
+            docstring_style: numpy
+
+nav:
+  - Home: index.md
+  - Installation: installation.md
+  - Quickstart: quickstart.md
+  - Tutorials:
+      - Tutorial: tutorials/getting_started.ipynb
