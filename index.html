@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="description" content="None" />
+      <link rel="shortcut icon" href="img/favicon.ico" />
+    <title>ViralScan</title>
+    <link rel="stylesheet" href="css/theme.css" />
+    <link rel="stylesheet" href="css/theme_extra.css" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css" />
+        <link href="assets/_mkdocstrings.css" rel="stylesheet" />
+    
+      <script>
+        // Current page data
+        var mkdocs_page_name = "Home";
+        var mkdocs_page_input_path = "index.md";
+        var mkdocs_page_url = null;
+      </script>
+    
+    <!--[if lt IE 9]>
+      <script src="js/html5shiv.min.js"></script>
+    <![endif]-->
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
+      <script>hljs.highlightAll();</script> 
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+    <div class="wy-side-scroll">
+      <div class="wy-side-nav-search">
+          <a href="." class="icon icon-home"> ViralScan
+        </a><div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="./search.html" method="get">
+      <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" title="Type search term here" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul class="current">
+                <li class="toctree-l1 current"><a class="reference internal current" href="#">Home</a>
+    <ul class="current">
+    <li class="toctree-l2"><a class="reference internal" href="#introduction">Introduction</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#installation">Installation</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#input-data">Input Data</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#reference-index">Reference Index</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#samples">Samples</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#user-guide">User Guide</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#license">License</a>
+    </li>
+    </ul>
+                </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Tutorials</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="tutorials/getting_started.ipynb">Tutorial</a>
+                  </li>
+              </ul>
+      </div>
+    </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+      <nav class="wy-nav-top" role="navigation" aria-label="Mobile navigation menu">
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href=".">ViralScan</a>
+        
+      </nav>
+      <div class="wy-nav-content">
+        <div class="rst-content"><div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="." class="icon icon-home" aria-label="Docs"></a></li>
+      <li class="breadcrumb-item active">Home</li>
+    <li class="wy-breadcrumbs-aside">
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+            <div class="section" itemprop="articleBody">
+              
+                <h1 id="viralscan">ViralScan</h1>
+<h2 id="introduction">Introduction</h2>
+<p><strong>ViralScan</strong> is a computational bioinformatics framework to detect viral load in samples. It is designed for the Leiden University Medical Centre (LUMC) to enable the detection of multiple viruses.</p>
+<p>The tool can use both kb ref and kb count to perform scalable detection of the viral load.</p>
+<hr />
+<h2 id="installation">Installation</h2>
+<p>ViralScan can be installed using <code>pip</code> in a Python environment:</p>
+<pre><code>pip install -i https://test.pypi.org/simple/ ViralScan
+</code></pre>
+<p>A conda environment is recommended. You can create one as follows:</p>
+<pre><code>conda create -n bioenv -c conda-forge -c bioconda snakemake kb-python
+</code></pre>
+<p>ViralScan is command-line based. To view available commands and options, run the following command:</p>
+<pre><code>viralscan --help
+</code></pre>
+<p>This will display all available options regarding the software, including an example.</p>
+<hr />
+<h2 id="input-data">Input Data</h2>
+<h3 id="reference-index">Reference Index</h3>
+<p>ViralScan requires an index created with kb ref (from thhe kb-python package).
+There are 2 options regarding the index:
+- provide your own pre-built index, or;
+- let ViralScan create its own index for you.</p>
+<p>Reference data to create the index can be found on Zenodo (https://zenodo.org/uploads/16792022).</p>
+<h3 id="samples">Samples</h3>
+<p>ViralScan expects paired-end FASTQ files (potentially gunzipped). Both sample files (forward and backward) must be provided for the analysis.
+Samples which can be used for testing: SRR20710651, SRR20710645 and SRR10307460</p>
+<hr />
+<h2 id="user-guide">User Guide</h2>
+<p>There are 2 ways to run ViralScan:
+There are 2 options regarding the index:
+- 1. You already have a reference index built with kb-python
+- 2. You don't have a reference index and want ViralScan to create one for you</p>
+<p>Please Note: all the output from ViralScan (including the logs and plots) will be created in the output folder defined by the user. To run ViralScan with option 1, run the following:</p>
+<pre><code>viralscan -t transcripts.txt -i index.idx -o output/ -s1 sample_1.fastq.gz -s2 sample_2.fastq.gz
+</code></pre>
+<p>If you want ViralScan to create a reference index for you, you have to provide the GTF and FASTA file(s). Running ViralScan to create a reference index and to perform the quantification can be done as follows:</p>
+<pre><code>viralscan -o output/ -reference True -s1 sample_1.fastq.gz -s2 sample_2.fastq.gz -fasta fasta.fasta -gtf gtf.gtf
+</code></pre>
+<p>The index will be placed in the output directory, in a subfolder called <code>index</code>.</p>
+<p>If you have multiple samples, ViralScan can analyze them with 1 command. Just split the names of the samples with a comma (without a space in-between). The same is when you have multiple GTF and FASTA files. For example:</p>
+<pre><code># If you have multiple samples
+viralscan -t transcripts.txt -i index.idx -o output/ -s1 sample1_1.fastq.gz,sample2_1.fastq.gz -s2 sample1_2.fastq.gz,sample2_2.fastq.gz
+
+# If you have multiple gtfs and fasta files 
+viralscan -o output/ -reference True -s1 sample_1.fastq.gz -s2 sample_2.fastq.gz -fasta fasta1.fasta,fasta2.fasta -gtf gtf1.gtf,gtf2.gtf
+</code></pre>
+<p>For information about other parameters or possibilities in ViralScan, call the help function:</p>
+<pre><code>viralscan --help
+</code></pre>
+<h2 id="license">License</h2>
+<p>This project is licensed under the MIT License. See the LICENSE file for details.</p>
+              
+            </div>
+          </div><footer>
+    <div class="rst-footer-buttons" role="navigation" aria-label="Footer Navigation">
+        <a href="tutorials/getting_started.ipynb" class="btn btn-neutral float-right" title="Tutorial">Next <span class="icon icon-circle-arrow-right"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+  </div>
+
+  Built with <a href="https://www.mkdocs.org/">MkDocs</a> using a <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+          
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" aria-label="Versions">
+  <span class="rst-current-version" data-toggle="rst-current-version">
+    
+    
+    
+      <span><a href="tutorials/getting_started.ipynb" style="color: #fcfcfc">Next &raquo;</a></span>
+    
+  </span>
+</div>
+    <script src="js/jquery-3.6.0.min.js"></script>
+    <script>var base_url = ".";</script>
+    <script src="js/theme_extra.js"></script>
+    <script src="js/theme.js"></script>
+      <script src="search/main.js"></script>
+    <script>
+        jQuery(function () {
+            SphinxRtdTheme.Navigation.enable(true);
+        });
+    </script>
+
+</body>
+</html>
+
+<!--
+MkDocs version : 1.6.1
+Build Date UTC : 2026-05-20 06:23:38.630497+00:00
+-->
